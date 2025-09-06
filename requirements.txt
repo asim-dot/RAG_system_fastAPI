@@ -1,7 +1,7 @@
 langchain 
 chromadb 
 sentence-transformers
-pypdf2
+pypdf
 streamlit 
 langchain-community
 ollama

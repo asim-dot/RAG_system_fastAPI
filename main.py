@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from pydantic import BaseModel
 import tempfile
 import os
-
+from datetime import datetime
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -22,6 +22,14 @@ class Question(BaseModel):
 class Answer(BaseModel):
     answer: str
     source_count: int
+
+@app.get("/health")
+async def health_check():
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now(),
+        "active_sessions": len(rag_chains)
+    }
 
 @app.post("/upload")
 async def upload_pdf(file: UploadFile= File(...)):
