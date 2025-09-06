@@ -6,3 +6,10 @@ streamlit
 langchain-community
 ollama
 pytest
+fastapi
+uvicorn
+python-multipart
+pydantic
+httpx
+numpy
+pandas
