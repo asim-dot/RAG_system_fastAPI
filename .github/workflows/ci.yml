@@ -31,4 +31,4 @@ jobs:
     # Simple import check instead of running server
     - name: Check imports
       run: |
-        python -c "from api import app; print('✅ API imports successfully')"
+        python -c "from main import app; print('✅ API imports successfully')"
